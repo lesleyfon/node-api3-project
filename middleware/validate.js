@@ -10,21 +10,36 @@ function validatePostId (){
                       })
                 }else{
                     req.post =response;
-                    req.id = response['id']
+                    req.id = response['id'];
                     next();
                 }
             }).catch(err => {
-                console.log(err)
                 res.status(500).send({
                     message: 'Server Error'
-                  })
-            })
+                  });
+            });
         }
         
       
     }
 }
 
+
+function validatePost(){
+    return (req, res, next) => {
+        const id = req.params.id;
+
+        if(req.body.text.length > 1){
+            req.post = req.body;
+            if(id){
+                req.id = id;
+            }
+        }
+        next();
+    }   
+}
+
 module.exports = {
-    validatePostId
+    validatePostId,
+    validatePost
 }
