@@ -1,9 +1,11 @@
 // code away!
+require('dotenv').config()
 const express = require('express');
 
 const logger = require('./middleware/logger');
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT;
+
 const postRouter = require('./posts/postRouter');
 const userRouter = require('./users/userRouter');
 
@@ -15,4 +17,5 @@ app.use('/api/user', userRouter)
 
 
 app.get('/', (req, res) => res.send(`<h3>Welcome to '/' Endpoint</h3>`))
-app.listen(PORT, () => console.log(`App listening to http://localhost:${PORT}`))
+app.listen(PORT, () =>{
+    console.log(`App listening to http://localhost:${PORT}`)})
