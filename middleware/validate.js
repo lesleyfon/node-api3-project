@@ -29,7 +29,7 @@ function validatePost(){
     return (req, res, next) => {
         const id = req.params.id;
 
-        if(req.body.text.length > 1){
+        if(req.body.text.length > 1 ){
             req.post = req.body;
             if(id){
                 req.id = id;
