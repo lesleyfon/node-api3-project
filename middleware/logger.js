@@ -1,6 +1,6 @@
 module.exports = function(req, res, next){
     console.log(`
-    Time Stamp: [${new Date().toISOString}]
+    Time Stamp: [${new Date().toISOString()}]
     Ip: ${req.ip}
     Protocol: ${req.protocol}
     Method: ${req.method}
